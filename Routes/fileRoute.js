@@ -25,7 +25,6 @@ router.route('/').get(async(req,res)=>{
 router.route("/upload").post(async (req, res) => {
   try {
     const { fileName } = req.body;
-    console.log(fileName)
     const file = req?.files?.dfile;
     let threeContent = {
       name: fileName,
@@ -50,7 +49,6 @@ router.route("/upload").post(async (req, res) => {
         }
       );
     }
-    console.log(threeContent)
     const newFilez = new Filez(threeContent);
     const savedFile = await newFilez.save();
     return res.status(201).json({ success: "true", savedFile });
